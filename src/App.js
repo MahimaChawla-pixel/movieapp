@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import { useState } from "react";
 
-const bookDB = {
+const MovieDB = {
   Bollywood: [
     { name: "Ramleela", rating: "4/5" },
     { name: "Padmavat", rating: "3.5/5" }
@@ -10,7 +10,7 @@ const bookDB = {
 
   Hollywood: [
     {
-      name: "Installar",
+      name: "Inception",
       rating: "5/5"
     },
     {
@@ -19,7 +19,7 @@ const bookDB = {
     }
   ],
 
-  business: [
+  WebSeries: [
     {
       name: "vampire diaries",
       rating: "3.5/5"
@@ -32,7 +32,7 @@ const bookDB = {
 };
 
 export default function App() {
-  const [selectedGenre, setGenre] = useState("business");
+  const [selectedGenre, setGenre] = useState("WebSeries");
   function genreClickHandler(genre) {
     setGenre(genre);
   }
@@ -45,7 +45,7 @@ export default function App() {
       </p>
 
       <div>
-        {Object.keys(bookDB).map((genre) => (
+        {Object.keys(MovieDB).map((genre) => (
           <button
             onClick={() => genreClickHandler(genre)}
             style={{
@@ -64,9 +64,9 @@ export default function App() {
       <hr />
       <div style={{ textAlign: "left" }}>
         <ul style={{ paddingInlineStart: "0" }}>
-          {bookDB[selectedGenre].map((book) => (
+          {MovieDB[selectedGenre].map((Movie) => (
             <li
-              key={book.name}
+              key={Movie.name}
               style={{
                 listStyle: "none",
                 padding: "1rem",
@@ -77,8 +77,8 @@ export default function App() {
               }}
             >
               {" "}
-              <div style={{ fontSize: "larger" }}> {book.name} </div>
-              <div style={{ fontSize: "smaller" }}> {book.rating} </div>
+              <div style={{ fontSize: "larger" }}> {Movie.name} </div>
+              <div style={{ fontSize: "smaller" }}> {Movie.rating} </div>
             </li>
           ))}
         </ul>
